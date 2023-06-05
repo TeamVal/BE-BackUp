@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 public class AdministradorDTO {
-    private int idAdministador;
+    private int idAdministrador;
 
     private String usuario;
 
@@ -13,12 +13,12 @@ public class AdministradorDTO {
 
     private String codigo;
 
-    public int getIdAdministador() {
-        return idAdministador;
+    public int getIdAdministrador() {
+        return idAdministrador;
     }
 
-    public void setIdAdministador(int idAdministador) {
-        this.idAdministador = idAdministador;
+    public void setIdAdministrador(int idAdministrador) {
+        this.idAdministrador = idAdministrador;
     }
 
     public String getUsuario() {
