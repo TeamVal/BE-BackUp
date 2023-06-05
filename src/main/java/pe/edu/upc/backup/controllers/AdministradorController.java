@@ -28,4 +28,20 @@ public class AdministradorController {
             return m.map(x, AdministradorDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable ("id")Integer id){
+        aS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public AdministradorDTO listId(@PathVariable ("id")Integer id){
+        ModelMapper m=new ModelMapper();
+        AdministradorDTO dto=m.map(aS.listId(id),AdministradorDTO.class);
+        return dto;
+    }
+    @PutMapping
+    public void update(@RequestBody AdministradorDTO dto){
+        ModelMapper m=new ModelMapper();
+        Administrador a=m.map(dto, Administrador.class);
+        aS.insert(a);
+    }
 }

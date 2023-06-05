@@ -3,6 +3,7 @@ package pe.edu.upc.backup.servicesimplement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.backup.entities.Administrador;
+import pe.edu.upc.backup.entities.Asesor;
 import pe.edu.upc.backup.repositories.IAdministradorRepository;
 import pe.edu.upc.backup.services.IAdministradorService;
 
@@ -21,5 +22,15 @@ public class AdministradorServiceImplement implements IAdministradorService {
     @Override
     public List<Administrador> list() {
         return aR.findAll();
+    }
+
+    @Override
+    public void delete(int id) {
+        aR.deleteById(id);
+    }
+
+    @Override
+    public Administrador listId(int id) {
+        return aR.findById(id).orElse(new Administrador());
     }
 }
