@@ -46,4 +46,19 @@ public class MicroCursoController {
         MicroCurso r=m.map(dto, MicroCurso.class);
         MS.insert(r);
     }
+    @PostMapping("/buscar")
+    public List<MicroCursoDTO> buscar(@RequestBody String tema) {
+        return MS.buscarFecha(tema).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MicroCursoDTO.class);
+        }).collect(Collectors.toList());
+
+    }
+    @PostMapping("/buscarMicroTipoLenguaje")
+    public List<MicroCursoDTO> buscarMicroTipoLenguaje(@RequestBody String tipo){
+        return MS.findMicrocursoTipoLenguaje(tipo).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, MicroCursoDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

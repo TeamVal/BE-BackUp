@@ -31,4 +31,13 @@ public class MicroCursoServiceImplement implements IMicroCursoService {
     public MicroCurso listId(int idMicro) {
         return mR.findById(idMicro).orElse(new MicroCurso());
     }
+    @Override
+    public List<MicroCurso> buscarFecha(String tema) {
+        return mR.findByTema(tema);
+    }
+
+    @Override
+    public List<MicroCurso> findMicrocursoTipoLenguaje(String tipo) {
+        return mR.findMicrocursoTipoLenguaje(tipo);
+    }
 }
