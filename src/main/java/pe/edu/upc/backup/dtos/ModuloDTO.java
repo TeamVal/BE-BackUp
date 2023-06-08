@@ -1,5 +1,6 @@
 package pe.edu.upc.backup.dtos;
 
+import pe.edu.upc.backup.entities.MicroCurso;
 import pe.edu.upc.backup.entities.Recurso;
 
 public class ModuloDTO {
@@ -11,6 +12,9 @@ public class ModuloDTO {
     private String estado;
 
     private Recurso recurso;
+
+    private MicroCurso microcurso;
+
 
     public int getIdmodulo() {
         return idmodulo;
@@ -50,6 +54,14 @@ public class ModuloDTO {
 
     public void setRecurso(Recurso recurso) {
         this.recurso = recurso;
+    }
+
+    public MicroCurso getMicrocurso() {
+        return microcurso;
+    }
+
+    public void setMicrocurso(MicroCurso microcurso) {
+        this.microcurso = microcurso;
     }
 }
 

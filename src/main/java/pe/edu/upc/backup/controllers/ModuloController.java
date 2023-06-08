@@ -40,7 +40,7 @@ public class ModuloController {
         ModuloDTO dto=m.map(cS.listId(id),ModuloDTO.class);
         return dto;
     }
-    @PutMapping("/{id}")
+    @PutMapping
     public void updatemodulo(@RequestBody ModuloDTO dto){
         ModelMapper m=new ModelMapper();
         Modulo r=m.map(dto, Modulo.class);

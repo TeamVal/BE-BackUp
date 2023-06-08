@@ -20,15 +20,20 @@ public class Modulo {
     @JoinColumn(name = "idrecurso",nullable = false)
     private Recurso recurso;
 
+    @ManyToOne
+    @JoinColumn(name = "idMicroCurso",nullable = false)
+    private MicroCurso microcurso;
+
     public Modulo() {
     }
 
-    public Modulo(int idmodulo, String titulo, String descripcion, String estado, Recurso recurso) {
+    public Modulo(int idmodulo, String titulo, String descripcion, String estado, Recurso recurso, MicroCurso microcurso) {
         this.idmodulo = idmodulo;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.estado = estado;
         this.recurso = recurso;
+        this.microcurso = microcurso;
     }
 
     public int getIdmodulo() {
@@ -69,5 +74,13 @@ public class Modulo {
 
     public void setRecurso(Recurso recurso) {
         this.recurso = recurso;
+    }
+
+    public MicroCurso getMicrocurso() {
+        return microcurso;
+    }
+
+    public void setMicrocurso(MicroCurso microcurso) {
+        this.microcurso = microcurso;
     }
 }
