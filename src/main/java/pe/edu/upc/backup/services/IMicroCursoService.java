@@ -9,4 +9,6 @@ public interface IMicroCursoService {
     List<MicroCurso> list();
     public void delete(int idMicro);
     public MicroCurso listId(int idMicro);
+    public List<MicroCurso>  buscarFecha(String tema);
+    public List<MicroCurso>  findMicrocursoTipoLenguaje(String tipo);
 }
