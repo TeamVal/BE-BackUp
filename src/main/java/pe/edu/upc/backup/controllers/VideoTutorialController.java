@@ -46,4 +46,13 @@ public class VideoTutorialController {
         VideoTutorial r=m.map(dto, VideoTutorial.class);
         vS.insert(r);
     }
+
+    @GetMapping("/listxidasesor/{idasesor}")
+    public List<VideoTutorialDTO> listIdasesor(@PathVariable Integer idasesor) {
+        return vS.listIdasesor(idasesor).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, VideoTutorialDTO.class);
+        }).collect(Collectors.toList());
+
+    }
 }

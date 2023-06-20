@@ -9,4 +9,5 @@ public interface IVideoTutorialService {
     List<VideoTutorial> list();
     public void delete(int idVideo);
     public VideoTutorial listId(int idVideo);
+    public List<VideoTutorial> listIdasesor(int idasesor);
 }
