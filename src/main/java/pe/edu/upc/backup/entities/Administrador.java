@@ -11,8 +11,6 @@ public class Administrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAdministrador;
 
-    @Column(name = "usuario", nullable = false)
-    private String usuario;
 
     @Column(name = "correo_elec", nullable = false)
     private String correoElec;
@@ -20,14 +18,18 @@ public class Administrador {
     @Column(name = "codigo", nullable = false)
     private String codigo;
 
+    @ManyToOne
+    @JoinColumn(name = "idUser", nullable = false)
+    private Users users;
+
     public Administrador() {
     }
 
-    public Administrador(int idAdministrador, String usuario, String correoElec, String codigo) {
+    public Administrador(int idAdministrador, String correoElec, String codigo, Users users) {
         this.idAdministrador = idAdministrador;
-        this.usuario = usuario;
         this.correoElec = correoElec;
         this.codigo = codigo;
+        this.users = users;
     }
 
     public int getIdAdministrador() {
@@ -38,13 +40,6 @@ public class Administrador {
         this.idAdministrador = idAdministrador;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     public String getCorreoElec() {
         return correoElec;
@@ -60,5 +55,13 @@ public class Administrador {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

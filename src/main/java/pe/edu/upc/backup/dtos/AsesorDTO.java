@@ -1,8 +1,6 @@
 package pe.edu.upc.backup.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import pe.edu.upc.backup.entities.Users;
 
 public class AsesorDTO {
     private int idAsesor;
@@ -16,6 +14,8 @@ public class AsesorDTO {
     private String correo;
 
     private String arch;
+
+    private Users users;
 
     public int getIdAsesor() {
         return idAsesor;
@@ -63,5 +63,13 @@ public class AsesorDTO {
 
     public void setArch(String arch) {
         this.arch = arch;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

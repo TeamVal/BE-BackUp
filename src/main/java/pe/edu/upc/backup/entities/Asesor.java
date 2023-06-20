@@ -26,16 +26,21 @@ public class Asesor {
     @Column(name = "arch", nullable = false)
     private String arch;
 
+    @ManyToOne
+    @JoinColumn(name = "idUser", nullable = false)
+    private Users users;
+
     public Asesor() {
     }
 
-    public Asesor(int idAsesor, String ape, String nom, int tel, String correo, String arch) {
+    public Asesor(int idAsesor, String ape, String nom, int tel, String correo, String arch, Users users) {
         this.idAsesor = idAsesor;
         this.ape = ape;
         this.nom = nom;
         this.tel = tel;
         this.correo = correo;
         this.arch = arch;
+        this.users = users;
     }
 
     public int getIdAsesor() {
@@ -84,5 +89,13 @@ public class Asesor {
 
     public void setArch(String arch) {
         this.arch = arch;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }
