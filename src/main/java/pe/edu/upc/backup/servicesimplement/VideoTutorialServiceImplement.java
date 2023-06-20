@@ -32,4 +32,9 @@ public class VideoTutorialServiceImplement implements IVideoTutorialService {
     public VideoTutorial listId(int idVideo) {
         return vR.findById(idVideo).orElse(new VideoTutorial());
     }
+
+    @Override
+    public List<VideoTutorial> listIdasesor(int idasesor) {
+        return vR.listIdasesor(idasesor);
+    }
 }

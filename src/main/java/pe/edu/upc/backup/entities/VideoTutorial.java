@@ -1,6 +1,7 @@
 package pe.edu.upc.backup.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "videoTutorial")
 public class VideoTutorial {

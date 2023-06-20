@@ -3,7 +3,6 @@ package pe.edu.upc.backup.dtos;
 import pe.edu.upc.backup.entities.Asesor;
 import pe.edu.upc.backup.entities.Lenguaje;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 public class VideoTutorialDTO {
