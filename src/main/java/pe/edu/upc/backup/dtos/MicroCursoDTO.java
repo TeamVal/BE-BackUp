@@ -3,8 +3,6 @@ package pe.edu.upc.backup.dtos;
 import pe.edu.upc.backup.entities.Asesor;
 import pe.edu.upc.backup.entities.Lenguaje;
 
-import javax.persistence.*;
-
 public class MicroCursoDTO {
 
     private int idMicroCurso;

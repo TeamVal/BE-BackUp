@@ -1,6 +1,7 @@
 package pe.edu.upc.backup.entities;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "microcurso")
 public class MicroCurso {

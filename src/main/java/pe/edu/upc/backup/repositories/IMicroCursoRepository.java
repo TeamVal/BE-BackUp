@@ -14,4 +14,7 @@ public interface IMicroCursoRepository extends JpaRepository<MicroCurso, Integer
     List<MicroCurso> findByTema(String tema);
     @Query("SELECT v FROM MicroCurso v WHERE v.lenguaje.tipoLeng = :tipo")
     List<MicroCurso> findMicrocursoTipoLenguaje(@Param("tipo") String tipo);
+
+    @Query("from MicroCurso v where v.asesor.idAsesor =:idasesor")
+    List<MicroCurso> listIdasesor(Integer idasesor);
 }

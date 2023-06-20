@@ -3,11 +3,11 @@ package pe.edu.upc.backup.servicesimplement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.backup.entities.MicroCurso;
-import pe.edu.upc.backup.entities.VideoTutorial;
 import pe.edu.upc.backup.repositories.IMicroCursoRepository;
 import pe.edu.upc.backup.services.IMicroCursoService;
 
 import java.util.List;
+
 @Service
 public class MicroCursoServiceImplement implements IMicroCursoService {
     @Autowired
@@ -39,5 +39,9 @@ public class MicroCursoServiceImplement implements IMicroCursoService {
     @Override
     public List<MicroCurso> findMicrocursoTipoLenguaje(String tipo) {
         return mR.findMicrocursoTipoLenguaje(tipo);
+    }
+    @Override
+    public List<MicroCurso> listIdasesor(int idasesor) {
+        return mR.listIdasesor(idasesor);
     }
 }

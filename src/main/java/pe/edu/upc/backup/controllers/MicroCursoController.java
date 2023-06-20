@@ -3,13 +3,13 @@ package pe.edu.upc.backup.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import pe.edu.upc.backup.dtos.MicroCursoDTO;
 import pe.edu.upc.backup.entities.MicroCurso;
 import pe.edu.upc.backup.services.IMicroCursoService;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/microcursos")
 public class MicroCursoController {
@@ -60,5 +60,14 @@ public class MicroCursoController {
             ModelMapper m=new ModelMapper();
             return m.map(x, MicroCursoDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/listxidasesor/{idasesor}")
+    public List<MicroCursoDTO> listIdasesor(@PathVariable Integer idasesor) {
+        return MS.listIdasesor(idasesor).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MicroCursoDTO.class);
+        }).collect(Collectors.toList());
+
     }
 }
