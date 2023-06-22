@@ -2,7 +2,6 @@ package pe.edu.upc.backup.dtos;
 
 import pe.edu.upc.backup.entities.Estudiante;
 
-
 import java.time.LocalDate;
 
 public class MetodoPagoDTO {

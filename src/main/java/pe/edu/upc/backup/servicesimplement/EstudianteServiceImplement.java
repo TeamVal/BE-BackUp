@@ -7,6 +7,7 @@ import pe.edu.upc.backup.repositories.IEstudianteRepository;
 import pe.edu.upc.backup.services.IEstudianteService;
 
 import java.util.List;
+
 @Service
 public class EstudianteServiceImplement implements IEstudianteService {
     @Autowired
@@ -29,5 +30,10 @@ public class EstudianteServiceImplement implements IEstudianteService {
 
     @Override
     public Estudiante listId(int id) {return eR.findById(id).orElse(new Estudiante());
+    }
+
+    @Override
+    public Estudiante listbyUser(String username) {
+        return eR.listbyUser(username);
     }
 }

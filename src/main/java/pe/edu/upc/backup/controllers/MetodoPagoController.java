@@ -7,7 +7,6 @@ import pe.edu.upc.backup.dtos.MetodoPagoDTO;
 import pe.edu.upc.backup.entities.MetodoPago;
 import pe.edu.upc.backup.services.IMetodoPagoService;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +45,13 @@ public class MetodoPagoController {
         ModelMapper m=new ModelMapper();
         MetodoPago r=m.map(dto, MetodoPago.class);
         MpS.insert(r);
+    }
+    @GetMapping("/listaporidestudiante/{idestudiante}")
+    public List<MetodoPagoDTO> listIdestudiante(@PathVariable Integer idestudiante) {
+        return MpS.listIdestudiante(idestudiante).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MetodoPagoDTO.class);
+        }).collect(Collectors.toList());
+
     }
 }

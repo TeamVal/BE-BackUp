@@ -6,8 +6,8 @@ import pe.edu.upc.backup.entities.MetodoPago;
 import pe.edu.upc.backup.repositories.IMetodoPagoRepository;
 import pe.edu.upc.backup.services.IMetodoPagoService;
 
-
 import java.util.List;
+
 @Service
 public class MetodoPagoServiceImplement implements IMetodoPagoService {
     @Autowired
@@ -30,5 +30,9 @@ public class MetodoPagoServiceImplement implements IMetodoPagoService {
     @Override
     public MetodoPago listId(int idMetodop) {
         return mpR.findById(idMetodop).orElse(new MetodoPago());
+    }
+    @Override
+    public List<MetodoPago> listIdestudiante(Integer idestudiante) {
+        return mpR.listIdestudiante(idestudiante);
     }
 }

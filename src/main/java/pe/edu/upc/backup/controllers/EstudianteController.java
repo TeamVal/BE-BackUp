@@ -9,6 +9,7 @@ import pe.edu.upc.backup.services.IEstudianteService;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/estudiantes")
 public class EstudianteController {
@@ -41,5 +42,10 @@ public class EstudianteController {
         Estudiante e = m.map(dto, Estudiante.class);
         eS.insert(e);
     }
-
+    @GetMapping("/listbyUser/{username}")
+    public EstudianteDTO listbyUser(@PathVariable ("username")String username){
+        ModelMapper m=new ModelMapper();
+        EstudianteDTO dto=m.map(eS.listbyUser(username),EstudianteDTO.class);
+        return dto;
+    }
 }
