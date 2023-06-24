@@ -11,4 +11,7 @@ import java.util.List;
 public interface IAsesoriaRepository extends JpaRepository<Asesoria, Integer> {
     @Query("from Asesoria v where v.asesor.idAsesor =:idasesor")
     List<Asesoria> listidasesor(Integer idasesor);
+
+    @Query("from Asesoria v where v.solicitud.estudiante.idEstudiante =:idEstudiante")
+    List<Asesoria> listidestudiante(Integer idEstudiante);
 }

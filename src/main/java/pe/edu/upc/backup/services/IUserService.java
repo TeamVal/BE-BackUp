@@ -9,4 +9,6 @@ public interface IUserService {
 
     List<Users> list();
 
+    Users last();
+
 }

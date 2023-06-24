@@ -1,10 +1,9 @@
 package pe.edu.upc.backup.controllers;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.backup.dtos.AdministradorDTO;
+import pe.edu.upc.backup.dtos.AsesorAsesoriaDTO;
 import pe.edu.upc.backup.dtos.AsesorDTO;
 import pe.edu.upc.backup.entities.Asesor;
 import pe.edu.upc.backup.services.IAsesorService;
@@ -23,6 +22,14 @@ public class AsesorController {
         Asesor a=m.map(dto, Asesor.class);
         aS.insert(a);
     }
+
+    @PostMapping("/insert")
+    public void insertnuevo(@RequestBody AsesorDTO dto){
+        ModelMapper m=new ModelMapper();
+        Asesor a=m.map(dto, Asesor.class);
+        aS.insert(a);
+    }
+
     @GetMapping
     public List<AsesorDTO> List(){
         return aS.list().stream().map(x->{
@@ -45,5 +52,18 @@ public class AsesorController {
         ModelMapper m=new ModelMapper();
         Asesor a=m.map(dto, Asesor.class);
         aS.insert(a);
+    }
+
+    @GetMapping("/listbyUser/{username}")
+    public AsesorDTO listbyUser(@PathVariable ("username")String username){
+        ModelMapper m=new ModelMapper();
+        AsesorDTO dto=m.map(aS.listbyUser(username),AsesorDTO.class);
+        return dto;
+    }
+
+    @GetMapping("/asesor-count")
+    public List<AsesorAsesoriaDTO> getAsesorCountByAsesorias() {
+        List<AsesorAsesoriaDTO> asesorAsesoriaDTOs = aS.getAsesorCountByAsesorias();
+        return asesorAsesoriaDTOs;
     }
 }

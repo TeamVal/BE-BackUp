@@ -7,7 +7,6 @@ import pe.edu.upc.backup.repositories.UserRepository;
 import pe.edu.upc.backup.services.IUserService;
 
 import java.util.List;
-
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -26,5 +25,11 @@ public class UserServiceImpl implements IUserService {
     public List<Users> list() {
         // TODO Auto-generated method stub
         return uR.findAll();
+    }
+
+    @Override
+    public Users last() {
+        // TODO Auto-generated method stub
+        return uR.findFirstByOrderByIdDesc();
     }
 }

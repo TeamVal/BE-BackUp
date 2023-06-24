@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -55,6 +56,18 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/authenticate").permitAll()
+                .antMatchers("/users/list").permitAll()
+                .antMatchers("/users/save").permitAll()
+                .antMatchers("/users/insert").permitAll()
+                .antMatchers("/estudiantes/insert").permitAll()
+                .antMatchers("/asesores/insert").permitAll()
+                .antMatchers("/asesores/listbyUser/{username}").permitAll()
+                .antMatchers("/estudiantes/listbyUser/{username}").permitAll()
+                .antMatchers("/estudiantes").permitAll()
+                .antMatchers("/users").permitAll()
+                .antMatchers("/users/listar").permitAll()
+                .antMatchers("/users/last").permitAll()
+                .antMatchers("/roles").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

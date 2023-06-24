@@ -21,6 +21,12 @@ public class EstudianteController {
         Estudiante a=m.map(dto, Estudiante.class);
         eS.insert(a);
     }
+    @PostMapping("/insert")
+    public void insertnuevo(@RequestBody EstudianteDTO dto){
+        ModelMapper m=new ModelMapper();
+        Estudiante a=m.map(dto, Estudiante.class);
+        eS.insert(a);
+    }
     @GetMapping
     public List<EstudianteDTO> List(){
         return eS.list().stream().map(x->{

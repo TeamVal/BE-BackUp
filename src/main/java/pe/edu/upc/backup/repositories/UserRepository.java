@@ -19,4 +19,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     @Modifying
     @Query(value = "UPDATE Users u SET u.role = :role WHERE u.id = :userId")
     public void insRol(@Param("role") Role role, @Param("userId") Long userId);
+
+    @Query(value = "SELECT * FROM users ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    public Users findFirstByOrderByIdDesc();
 }
