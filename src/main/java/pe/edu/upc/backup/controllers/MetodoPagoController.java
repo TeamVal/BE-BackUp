@@ -3,6 +3,7 @@ package pe.edu.upc.backup.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backup.dtos.BancoDTO;
 import pe.edu.upc.backup.dtos.MetodoPagoDTO;
 import pe.edu.upc.backup.entities.MetodoPago;
 import pe.edu.upc.backup.services.IMetodoPagoService;
@@ -53,5 +54,11 @@ public class MetodoPagoController {
             return m.map(x, MetodoPagoDTO.class);
         }).collect(Collectors.toList());
 
+    }
+
+    @GetMapping("/banco-count")
+    public List<BancoDTO> getBancoCountMetodo() {
+        List<BancoDTO> bancoDTOs = MpS.getBancoCountMetodo();
+        return bancoDTOs;
     }
 }

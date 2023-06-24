@@ -2,10 +2,12 @@ package pe.edu.upc.backup.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.backup.dtos.BancoDTO;
 import pe.edu.upc.backup.entities.MetodoPago;
 import pe.edu.upc.backup.repositories.IMetodoPagoRepository;
 import pe.edu.upc.backup.services.IMetodoPagoService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,4 +37,22 @@ public class MetodoPagoServiceImplement implements IMetodoPagoService {
     public List<MetodoPago> listIdestudiante(Integer idestudiante) {
         return mpR.listIdestudiante(idestudiante);
     }
+
+    @Override
+    public List<BancoDTO> getBancoCountMetodo() {
+
+        List<String[]> bancoMetodo = mpR.getBancoCountMetodo();
+        List<BancoDTO> bancoMetodoDTOs = new ArrayList<>();
+
+        for (String[] data : bancoMetodo) {
+            BancoDTO dto = new BancoDTO();
+            dto.setNombre(data[0]);
+            dto.setCount(Integer.parseInt(data[1]));
+            bancoMetodoDTOs.add(dto);
+        }
+
+        return bancoMetodoDTOs;
+    }
+
+
 }
