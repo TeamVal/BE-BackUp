@@ -3,6 +3,7 @@ package pe.edu.upc.backup.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backup.dtos.ContenidoDTO;
 import pe.edu.upc.backup.dtos.RecursoDTO;
 import pe.edu.upc.backup.entities.Recurso;
 import pe.edu.upc.backup.services.IRecursoService;
@@ -45,5 +46,11 @@ public class RecursoController {
         ModelMapper m=new ModelMapper();
         Recurso r=m.map(dto, Recurso.class);
         lS.insert(r);
+    }
+
+    @GetMapping("/tipo-count")
+    public List<ContenidoDTO> get2tipoconteido() {
+        List<ContenidoDTO> contenidoDTOs = lS.get2tipoconteido();
+        return contenidoDTOs;
     }
 }
