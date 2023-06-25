@@ -56,8 +56,12 @@ public class AsesorController {
 
     @GetMapping("/listbyUser/{username}")
     public AsesorDTO listbyUser(@PathVariable ("username")String username){
-        ModelMapper m=new ModelMapper();
-        AsesorDTO dto=m.map(aS.listbyUser(username),AsesorDTO.class);
+        ModelMapper m = new ModelMapper();
+        Asesor asesor = aS.listbyUser(username);
+        if (asesor == null) {
+            return new AsesorDTO(); // Devuelve un objeto AsesorDTO vacío
+        }
+        AsesorDTO dto = m.map(asesor, AsesorDTO.class);
         return dto;
     }
 

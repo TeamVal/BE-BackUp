@@ -20,6 +20,7 @@ public class EstudianteController {
         ModelMapper m=new ModelMapper();
         Estudiante a=m.map(dto, Estudiante.class);
         eS.insert(a);
+
     }
     @PostMapping("/insert")
     public void insertnuevo(@RequestBody EstudianteDTO dto){
@@ -50,8 +51,14 @@ public class EstudianteController {
     }
     @GetMapping("/listbyUser/{username}")
     public EstudianteDTO listbyUser(@PathVariable ("username")String username){
-        ModelMapper m=new ModelMapper();
-        EstudianteDTO dto=m.map(eS.listbyUser(username),EstudianteDTO.class);
+
+        ModelMapper m = new ModelMapper();
+        Estudiante estudiante = eS.listbyUser(username);
+
+        if (estudiante == null) {
+            return new EstudianteDTO(); // Devuelve un objeto EstudianteDTO vacío
+        }
+        EstudianteDTO dto = m.map(estudiante, EstudianteDTO.class);
         return dto;
     }
 }
