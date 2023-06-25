@@ -9,4 +9,6 @@ public interface IModuleService {
     List<Modulo> list();
     public void delete(int idmodulo);
     public Modulo listId(int idmodulo);
+    public List<Modulo> listIdmicro(int idmicro);
+
 }

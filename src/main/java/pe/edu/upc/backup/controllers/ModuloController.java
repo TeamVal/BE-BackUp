@@ -46,6 +46,15 @@ public class ModuloController {
         Modulo r=m.map(dto, Modulo.class);
         cS.insert(r);
     }
+
+    @GetMapping("/listxidmicro/{idmicro}")
+    public List<ModuloDTO> listIdmicro(@PathVariable Integer idmicro) {
+        return cS.listIdmicro(idmicro).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ModuloDTO.class);
+        }).collect(Collectors.toList());
+
+    }
 }
 
 

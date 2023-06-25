@@ -7,6 +7,7 @@ import pe.edu.upc.backup.repositories.IModuloRepository;
 import pe.edu.upc.backup.services.IModuleService;
 
 import java.util.List;
+
 @Service
 public class ModuleServiceImplement implements IModuleService {
     @Autowired
@@ -32,5 +33,11 @@ public class ModuleServiceImplement implements IModuleService {
     @Override
     public Modulo listId(int idmodulo) {
         return mR.findById(idmodulo).orElse(new Modulo());
+    }
+
+
+    @Override
+    public List<Modulo> listIdmicro(int idmodulo) {
+        return mR.listIdmicro(idmodulo);
     }
 }
