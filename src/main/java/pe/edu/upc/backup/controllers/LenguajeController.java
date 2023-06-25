@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backup.dtos.LenguajeDTO;
+import pe.edu.upc.backup.dtos.LenguajeMicroDTO;
 import pe.edu.upc.backup.entities.Lenguaje;
 import pe.edu.upc.backup.services.ILenguajeService;
 
@@ -44,5 +45,11 @@ public class LenguajeController {
         Lenguaje l = m.map(dto, Lenguaje.class);
         lS.insert(l);
 
+    }
+
+    @GetMapping("/lenguaje-count")
+    public List<LenguajeMicroDTO> getLenguajeCountByMicrocurso() {
+        List<LenguajeMicroDTO> lenguajeMicroDTOs = lS.getLenguajeCountByMicrocurso();
+        return lenguajeMicroDTOs;
     }
 }

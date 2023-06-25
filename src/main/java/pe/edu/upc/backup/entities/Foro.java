@@ -2,7 +2,6 @@ package pe.edu.upc.backup.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
 @Entity
 @Table(name = "foros")
 public class Foro {

@@ -1,9 +1,5 @@
 package pe.edu.upc.backup.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 public class LenguajeDTO {
     private int idLenguaje;
     private String descrip;
