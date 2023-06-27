@@ -37,4 +37,9 @@ public class AsesoriaServiceImplement implements IAsesoriaService {
         return mR.listidasesor(idasesor);
     }
 
+    @Override
+    public List<Asesoria> listidestudiante(int idEstudiante) {
+        return mR.listidestudiante(idEstudiante);
+    }
+
 }

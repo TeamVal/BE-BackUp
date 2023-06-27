@@ -10,5 +10,6 @@ public interface IAsesoriaService {
     public void delete(int idasesoria);
     public Asesoria listId(int idasesoria);
     public List<Asesoria>  listIdasesor(int idasesor);
+    public List<Asesoria> listidestudiante(int idEstudiante);
 
 }

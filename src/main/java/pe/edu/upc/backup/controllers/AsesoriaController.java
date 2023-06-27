@@ -55,4 +55,13 @@ public class AsesoriaController {
         }).collect(Collectors.toList());
 
     }
+
+    @GetMapping("/listidestudiante/{idEstudiante}")
+    public List<AsesoriaDTO> listidestudiante(@PathVariable Integer idEstudiante) {
+        return MS.listidestudiante(idEstudiante).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, AsesoriaDTO.class);
+        }).collect(Collectors.toList());
+
+    }
 }
